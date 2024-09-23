@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- head and body are children of html -->
+ <!-- div, p, span and script all are desendents of body -->
+<body>
+    <div>
+        <p>the first chile of Div</p>
+        <!-- p and span are siblings -->
+        <span>Sibling</span>
+    </div>
+    <script>
+        console.log(document.body.firstChild)//text
+        console.log(document.body.childNodes[1].firstChild)//text
+        console.log(document.body.children)//div, script
+        console.log(document.body.children[0])//div
+        console.log(document.body.childNodes)//text,div,text,script....
+        console.log(document.body.childNodes[1].hasChildNodes())//true
+        let arr =Array.from(document.body.childNodes)
+        console.log(arr)//text,div,text,script
+        console.log(document.documentElement.previousSibling)//<!DOCTYPE html>
+        console.log(document.documentElement.nextSibling)//null
+        console.log(document.body.parentNode)//<html lang="en">
+        console.log(document.body.firstChild.parentElement)//body
+    </script>
+</body>
+</html>
+<!-- 
+#text
+
+#text
+
+HTMLCollection(2) [div, script]
+
+NodeList(4) [text, div, text, script]
+
+true
+
+[text, div, text, script]//converting to array
+0:text
+1:div
+2:text
+3:script
+length:4
+
+<!DCOTYPE html>
+
+null
+
+<html>
+
+<body>...</body>
+-->
+<!-- childNode behaves like an array but they are not array -->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            display: flex;
+            /* background: gray; */
+            margin: 0;
+            padding: 15px 0;
+            color: aliceblue;
+        }
+        ul li{
+            list-style: none;
+            margin: 0 23px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About me</li>
+            <li>Contact me</li>
+        </ul>
+    </nav>
+    <div class="cotainer">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dignissimos eos doloremque maxime repellat incidunt. Porro esse dicta quo odio!</p>
+    </div>
+    <script>
+        const changeBgRed =()=>{
+            document.body.firstElementChild.style.background = "red"
+        }
+        changeBgRed()//has less priority
+        let b= document.body
+        console.log("first chile of b is:",b.firstChild)//text
+        console.log("first element child of b is : ",b.firstElementChild)//<nav>
+        console.log("last element child of b is : ",b.lastElementChild)//<script>
+        console.log(b.previousElementSibling)//<head>
+        console.log(document.head.nextElementSibling)//<body>
+    </script>
+</body>
+</html>
+<!-- 
+#text
+<nav>...</nav>
+<script>...</script>
+<head>...</head>
+<body>...</body>
+-->
+<!-- chileElementNodes are children -->
