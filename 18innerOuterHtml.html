@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    Hello world
+    <span id="first" hidden><b>HI</b> Hey i am span</span>
+    <script>
+        console.log(document.getElementsByTagName("span")[0])//<span>
+        console.dir(document.getElementsByTagName("span")[0])//span as object, we can see all the properties of ti
+
+         console.log(document.body.firstChild.nodeName)//#text
+         console.log(document.body.firstElementChild.nodeName)//SPAN
+
+        console.log(first.innerHTML)//<b>HI</b> Hey i am span (returns a string) //valid for element nodes only
+        console.log(first.outerHTML)//<span id="first"><b>HI</b> Hey i am span</span>
+
+        console.log(document.body.firstChild)//"Hello world"
+        // nodeValue: "\n    Hello world\n    "
+        // data: "\n    Hello world\n    "
+
+        console.log(document.body.textContent)//returns text contents
+        // first.hidden=false
+    </script>
+</body>
+</html>

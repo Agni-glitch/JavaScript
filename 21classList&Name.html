@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html body{
+            margin: 0;
+            padding: 0;
+        }
+        .yellow{
+            background-color: yellow;
+            color: blue;
+        }
+        .red{
+            background-color: red;
+            color: aqua;
+        }
+        .text-dark{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="first" class="red text-dark">
+        <span>
+            Hey I am good
+        </span>
+    </div>
+    <script>
+        first.className="yellow text-dark"
+        console.log(first.classList)//"yellow text-dark"
+        first.classList.remove("yellow")//removes yellow
+        first.classList.add("red")//add red
+        first.classList.toggle("red")//removes red
+        first.classList.toggle("red")//adds red
+        console.log(first.classList.contains("red"))//true
+    </script>
+</body>
+</html>
