@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring & Spread Opeartor</title>
+</head>
+<body>
+    <script>
+        let arr =[3,5]
+        let [a,b]=arr
+        console.log(a,b)//3 5
+        let arr1 =[3,5,9]
+        let [a1,b1]=arr1
+        console.log(a1,b1)//3 5
+        let arr2 =[3,5,7,9]
+        let [a2,b2]=arr2
+        console.log(a2,b2)//it will give error
+        let arr3 =[3,5,7,9,11,13]
+        let [a3,b3,c,d,...rest]=arr2
+        console.log(a3,b3,c,d,rest)//3 5 7 9 (2)[11,13]
+        let arr4 =[3,5,7,9,11,13]
+        let [a4,b4,c2,...rest1]=arr4
+        console.log(rest1)//(3)[9,11,13]
+        let {a5,b5}={a5:5,b5:10}
+        console.log(a5,b5)//5 10 
+
+        // spread operator
+        // array to object
+        let array=[56,89,47,25]
+        let obj1={...array}
+        console.log(obj1)//{0: 56, 1: 89, 2: 47, 3: 25}
+        console.log({...obj1,0:124})//{0: 124, 1: 89, 2: 47, 3: 25}
+        function sum(a,b,c,d) {
+            return a+b+c+d
+        }
+        console.log(sum(...array))
+
+        // use in react
+        let obj2 ={
+            name:"Agni",
+            company:"xyz company",
+            address:"XYZ"
+        }
+        console.log({name:"Agni Roybar",...obj2})//this will not over write and changed the obj
+        console.log({...obj2,name:"Agni Roybar"}) //{name: 'Agni Roybar', company: 'xyz company', address: 'XYZ'}
+    </script>
+</body>
+</html>

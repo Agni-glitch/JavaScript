@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting</title>
+</head>
+<body>
+    <script>
+        // all the function declerations and the variable declerations goes at the top of js code
+        // it hoists only declerations not initializations,if not initialized at first it shows an undefined valer till it is initialized
+        // function expression and class expression are not hoisted
+        // class expression:
+        // let agni=class {}
+        
+        console.log(a)
+        greet()
+        function greet(){
+            console.log("hello")
+        }
+        var a=6;
+        // let a=6;
+        console.log(a)//gives error when it is let and const
+        //undefined
+        //hello
+        //6
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error handeling: Try and Catch</title>
+</head>
+<body>
+    <script>
+        setTimeout(()=>{
+            console.log("Hacking wifi...")
+        },1000)
+        // console.log(rahul) // gives error(rahul is not defined) and code execution stops 
+        try {
+
+            // setTimeout(()=>{
+            //     console.log(rahul)
+            // },1000)
+            // this can not be catched by try, only synchronous code can be handeled, scheduled code can not be handeled
+            console.log(rahul)
+            
+        } catch (error) {
+            console.log(new Error("rahul is not allowed"))
+            console.log("error:",error)
+        }
+
+        // Error: rahul is not allowed
+        // error: ReferenceError: rahul is not defined
+        setTimeout(()=>{
+            console.log("fetching user id and password")
+        },2000)
+        setTimeout(()=>{
+            console.log("Hacking facebook id ...")
+        },3000)
+    </script>
+</body>
+</html>

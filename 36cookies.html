@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+</head>
+<body>
+    <script>
+        // cookies = key value pairs seperated by = and distinguished by ;
+        // small string of data directy stored in the browser
+        // console.log(document.cookie)//viewing all cookies
+        // adding a cookie
+        document.cookie="name = agni"
+        console.log(document.cookie)
+        // changing a cookie
+        document.cookie="name=agni1234"
+        console.log(document.cookie)
+        let key = prompt("enter your key")
+        let value = prompt("enter your value")
+        document.cookie =`${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+        console.log(document.cookie)
+        // console.log(decodeURIComponent("a%3B%3B=gh%3B%3B"))//'a;;=gh;;'
+        // limits around 20+
+        // snould not be more than 4kB
+        document.cookie='user= agni; path= /a/b (paths); expires=Tue,10 October 2024 03:18:22 GTM'
+    </script>
+</body>
+</html>

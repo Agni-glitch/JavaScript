@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finally Clause</title>
+</head>
+<body>
+    <script>
+        try {
+            let a = 0
+            console.log("it ran successfully")
+            console.log(run)//error
+        } catch (error) {
+            console.log("its a error")
+            console.log(p)//error
+        }finally{
+            console.log("I am good boy")//it always runs, also if there is a return in try
+            // Ex:
+            // close the file
+            // close loop
+            // clean ups
+        }
+        const f=()=>{
+            try {
+            let a = 0
+            console.log("it ran successfully")
+            return
+        } catch (error) {
+            console.log("its a error")
+            console.log(p)
+        }finally{
+            console.log("I am good boy")
+        }
+        }
+        //it ran successfully
+        //I am good boy
+    </script>
+</body>
+</html>

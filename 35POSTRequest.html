@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST Request woith Fetch API</title>
+</head>
+
+<body>
+    <script>
+        // get request
+        // fetch('https://jsonplaceholder.typicode.com/todos/1')
+        //     .then(response => response.json())
+        //     .then(json => console.log(json))
+
+        //   post request
+        let creatTodo = async (todo) => {
+            let options = {
+                method: "POST",
+                Headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(todo)//converts valid js obj to string
+                // JSON.parse //converts a valid string to js obj
+            }
+            let p= await fetch('https://jsonplaceholder.typicode.com/posts', options)
+            // .then((response) => response.json())
+            // .then((json) => console.log(json));
+            let response= await p.json()
+            return response
+        }
+        const getTodo=async(id)=>{
+            let response = await fetch("https://jsonplaceholder.typicode.com/posts"+id)
+            let r = await response.json()
+            return r
+        }
+        const mainFunc=async()=>{
+            let todo={
+                    title: 'Agni',
+                    body: 'Roybar',
+                    userId: 1001,
+                }
+            let todoR =await creatTodo(todo)
+            console.log(todoR)
+            console.log(await getTodo(107))
+        }
+        mainFunc()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+
+    <script>
+        // localStorage.setItem('name','Agni')
+        let key = prompt("please enter your key: ")
+        let value = prompt("please enter your value: ")
+        localStorage.setItem(key,value)
+        console.log(`the value of ${key} is ${localStorage.getItem(key)}`)
+        if (key = 'color') {
+            localStorage.removeItem(key)//color 
+        }
+        // localStorage.clear()//full localStorage clear
+        localStorage.length() //no of keys 
+        // localStorage.key(1)//key 1
+        // localStorage.key(2)//key 2 
+        // localStorage.key(3)//key 3
+
+        // local storage as an object
+        localStorage.one=1
+        delete localStorage.one
+
+        // both key and value must be a string 
+        // storing obj in local storage:
+        // JSON.stringify(obj) //obj to string
+        // JSON.parse(String) //string to obj(valid json)
+
+        // sessionStorage.setItem("name",'agni')//when page is opened is new tab or refreshed then it is cleared
+        // .all methods are similar to localStorage
+
+        // storage events 
+        window.onstorage=(e)=>{
+            alert("changed")
+            console.log(e)
+        }
+    </script>
+</body>
+</html>

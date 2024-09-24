@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Objects</title>
+</head>
+
+<body>
+    <script>
+        try {
+            Agni
+        } catch (error) {
+            console.log(error.name)//ReferenceError
+            console.log(error.message)//Agni is not defined
+            console.log(error.stack)//ReferenceError: Agni is not defined
+        }
+        try {
+            let a = prompt("please enter your age?")
+            a = Number.parseInt(a)
+            if (a > 100) {
+                throw new Error("It is probably not true")
+            }
+        } catch (error) {
+            console.log(error.name)//Error
+            console.log(error.message)//It is probably not true
+            console.log(error.stack)//Error: It is probably not true
+        }
+    </script>
+</body>
+
+</html>

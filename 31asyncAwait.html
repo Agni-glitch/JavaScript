@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await</title>
+</head>
+<body>
+    Hello World
+    <script>
+        // an async function always returns a promise
+        // it is used to stop the execution of code
+        async function weather(){
+            let weatherDelhi = new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    resolve("45 deg")
+                },4000)
+            })
+            let weatherBangelore = new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    resolve("38 deg")
+                },8000)
+            })
+            console.log("fetching delhi whether, please wait..")
+            let delhiW = await weatherDelhi
+            console.log("fetched delhi whether:",delhiW)
+            console.log("fetching bangelore whether, please wait..")
+            let bangaloreW = await weatherBangelore
+            console.log("fetched bangelore whether:",bangaloreW)
+            return [delhiW,bangaloreW]
+        }
+        console.log("this is a weather forcasting channel")
+        // this is a weather forcasting channel
+        // fetching delhi whether, please wait..
+        // fetched delhi whether: 45 deg
+        // fetching bangelore whether, please wait..
+        // fetched bangelore whether: 38 deg
+        
+        // weather().then((value)=>{
+        //     console.log(value)
+        // })
+
+        //  ['45 deg', '38 deg']
+
+        let agni=async ()=>{
+            console.log("my name is Agni")
+        }
+
+        const main1=async()=>{
+            console.log("execution")
+            let a = await weather()
+            let b= await agni()
+        }
+        main1()
+        // this is a weather forcasting channel
+        // execution
+        // fetching delhi whether, please wait..
+        // fetched delhi whether: 45 deg
+        // fetching bangelore whether, please wait..
+        // fetched bangelore whether: 38 deg
+        // my name is Agni
+    </script>
+</body>
+</html>

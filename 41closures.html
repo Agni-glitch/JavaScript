@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body>
+    <script>
+    //A closer is a combination of function bundeled together enclosed with reference to it's surrounding states (lexical environment) 
+    function hello1(){
+        let message="good morning"
+        {
+        console.log("hello1",message)
+        }
+        message="I am ill"
+        // function hello2() {
+        //     console.log("I am c",message)
+        // }
+        // return hello2()
+        // or
+        const x=()=>{
+            console.log("I am c",message)
+        }
+        return x()
+    }
+    hello1()
+    // hello1 good morning
+    // I am c I am ill
+    </script>
+</body>
+</html>

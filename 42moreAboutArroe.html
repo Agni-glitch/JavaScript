@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More About Arrow Function</title>
+</head>
+<body>
+    <script>
+        const sayHello =(name1,greeting)=>console.log(`${greeting},${name1}`)
+        sayHello("Agni","Good Morning")
+        // Good Morning,Agni
+
+        const obj1={
+            name:"Agni",
+            role:"programmer",
+            exp:30000,
+            show:function(){//this is for obj1
+                let that = this 
+                console.log(this)
+                console.log(`My name is ${this.name},I am a ${this.role},My salary ${this.exp}`)
+                setTimeout(function(){//this is for window
+                    console.log(this)
+                    console.log(`My name is ${this.name},I am a ${this.role},My salary ${this.exp}`)
+                },2000)
+                setTimeout(()=>{//this is for obj1 (arrow fun is lexical function)
+                    console.log(this)
+                    console.log(`My name is ${this.name},I am a ${this.role},My salary ${this.exp}`)
+                },2000)
+                setTimeout(function(){//that is for obj1
+                    console.log(that)
+                    console.log(`My name is ${that.name},I am a ${that.role},My salary ${that.exp}`)
+                },2000)
+            }
+        }
+        obj1.show()
+        // {name: 'Agni', role: 'programmer', exp: 30000, show: ƒ}
+        // My name is Agni,I am a programmer,My salary 30000
+        // Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+        // My name is ,I am a undefined,My salary undefined
+        // {name: 'Agni', role: 'programmer', exp: 30000, show: ƒ}
+        // My name is Agni,I am a programmer,My salary 30000
+        // {name: 'Agni', role: 'programmer', exp: 30000, show: ƒ}
+        // My name is Agni,I am a programmer,My salary 30000
+    </script>
+</body>
+</html>
