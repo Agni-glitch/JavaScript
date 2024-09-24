@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API</title>
+</head>
+<body>
+    <script>
+        let p1= new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                resolve("value 1")
+            },4000)
+        })
+        // let p2= new Promise((resolve, reject) => {
+        //     setTimeout(()=>{
+        //         resolve("value 2")
+        //     },2000)
+        // })
+        let p2= new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                reject(new Error("value 2 is rejected"))
+            },2000)
+        })
+        let p3= new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                resolve("value 3")
+            },3000)
+        })
+
+        // p1.then((value)=>{
+        //     console.log(value)
+        // })
+        // p2.then((value)=>{
+        //     console.log(value)
+        // })
+        // p3.then((value)=>{
+        //     console.log(value)
+        // })
+
+        let promise_all1=Promise.all([p1,p2,p3])
+        promise_all1.then((value)=>{
+            console.log(value)
+        })
+        // (3) ['value 1', 'value 2', 'value 3']   (after 3 seconds)
+        // if any one of them is rejected then the Promise.all will not executed, and will throw error
+
+        let promise_all2=Promise.allSettled([p1,p2,p3])
+        promise_all2.then((value)=>{
+            console.log(value)
+        })
+        // 0: {status: 'fulfilled', value: 'value 1'}
+        // 1: {status: 'rejected', reason: Error: value 2 is rejected at http://127.0.0.1:5500/30promiseAPI.html:22:24}
+        // 2: {status: 'fulfilled', value: 'value 3'}
+        // length: 3
+
+        let promise_all3=Promise.race([p1,p2,p3])
+        promise_all3.then((value)=>{
+            console.log(value)
+        })
+        // value 1   (after 1 seconds)
+        // throws error if the first resolve is rejected
+
+        let promise_all4=Promise.any([p1,p2,p3])//waits for first promise to fullfil
+        promise_all4.then((value)=>{
+            console.log(value)
+        })
+        // value 3
+
+        let promise_all5=Promise.resolve(56)
+        promise_all5.then((value)=>{
+            console.log(value)
+        })
+        // 56
+        let promise_all6=Promise.reject(new Error("hey this is rejected"))
+        promise_all6.then((value)=>{
+            console.log(value)
+        })
+        // Error: hey this is rejected
+    </script>
+</body>
+</html>

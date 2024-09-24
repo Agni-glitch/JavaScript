@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call backs</title>
+    <style></style>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <script>
+        // const prompt = require('prompt-sync')();
+        // synchronous programing
+        // let a= prompt("enter your name: ")
+        // let b=prompt("enter your age: ")
+        // console.log(a,b)
+
+        // asynchronous programing
+        // console.log('start')
+        // setTimeout(function(){
+        //     console.log("hey i am asynchronous code")
+        // }, 6000);
+        // console.log('end')
+        //start
+        // end
+        // hey i am asynchronous code (after 6s)
+        //first all synchronous cout will run then asynchronous code will be executed
+
+        // call back without argument
+        // function loadScript(src, callback) {
+        //     var script = document.createElement('script')
+        //     script.src = src
+        //     script.onload = function () {
+        //         console.log("SRC: ",src);
+        //         callback()
+        //     }
+        //     document.body.appendChild(script)
+        // }
+        // function hello() {
+        //     console.log('hello')
+        // }
+        // function goodmorning() {
+        //     console.log('goodmorning')
+        // }
+        // loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", hello)
+        // loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", goodmorning)
+
+        // call back with argument
+        // function loadScript1(src, callback) {
+        //     var script = document.createElement('script')
+        //     script.src = src
+        //     script.onload = function () {
+        //         console.log("SRC: " + src);
+        //         callback(src)
+        //     }
+        //     document.body.appendChild(script)
+        // }
+        // function hello1(src) {
+        //     console.log('hello',src)
+        // }
+        // function goodmorning1(src) {
+        //     console.log('goodmorning',src)
+        // }
+        // loadScript1("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", hello1)
+        // loadScript1("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", goodmorning1)
+
+
+        // Error handeling in call backs
+        function loadScript2(src, callback) {
+            var script = document.createElement('script')
+            script.src = src
+            script.onload = function () {
+                console.log("SRC: ",src);
+                callback(null, src);
+            }
+            script.onerror = function () {
+                console.log("SRC: ",src);
+                callback(new Error("src got some error: " + src));
+            }
+            document.body.appendChild(script)
+        }
+        function hello2(error, src) {
+            if (error) {
+                console.log(error)
+                return
+            }
+            console.log('hello',src)
+        }
+        loadScript2("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", hello2)//no error
+        function goodmorning2(error, src) {
+            if (error) {
+                console.log(error)
+                return
+            }
+            console.log('goodmorning',src)
+        }
+        loadScript2("https://cdn.jsdelivr.net/npmxdgdmjf/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", goodmorning2)//with error
+    </script>
+</body>
+
+</html>

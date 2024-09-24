@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyramid of doom</title>
+</head>
+
+<body>
+    <script>
+        // also call call back inside another call back
+        // breakes readiblity
+
+        function loadScript(src, callback) {
+            var script = document.createElement('script')
+            script.src = src
+            script.onload = function () {
+                console.log("SRC: ", src);
+                callback(true, src);
+            }
+            script.onerror = function () {
+                console.log("SRC: ", src);
+                callback(new Error("src got some error: " + src));
+            }
+            document.body.appendChild(script)
+        }
+        function hello(error, src) {
+            if (error) {
+                console.log(error)
+                sendEmergencyMessagetoCeo()
+                return
+            }
+            console.log('hello', src)
+        }
+        loadScript2("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", function hello(error, src) {
+            if (error) {
+                console.log(error)
+                sendEmergencyMessagetoCeo()
+                return
+            }
+            loadScript2("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", function hello(error, src) {
+                if (error) {
+                    console.log(error)
+                    sendEmergencyMessagetoCeo()
+                    return
+                }
+                loadScript2("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", function hello(error, src) {
+                    if (error) {
+                        console.log(error)
+                        sendEmergencyMessagetoCeo()
+                        return
+                    }
+                    loadScript2("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", function hello(error, src) {
+                        if (error) {
+                            console.log(error)
+                            sendEmergencyMessagetoCeo()
+                            return
+                        }
+                        loadScript2("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", function hello(error, src) {
+                            if (error) {
+                                console.log(error)
+                                sendEmergencyMessagetoCeo()
+                                return
+                            }
+                            loadScript2("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", function hello(error, src) {
+                                if (error) {
+                                    console.log(error)
+                                    sendEmergencyMessagetoCeo()
+                                    return
+                                }
+                                loadScript2("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", function hello(error, src) {
+                                    if (error) {
+                                        console.log(error)
+                                        sendEmergencyMessagetoCeo()
+                                        return
+                                    }
+                                    console.log("hello")
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

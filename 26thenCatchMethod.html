@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.then() and .catch()</title>
+</head>
+<body>
+
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            console.log("promise is pending")
+            setTimeout(() => {
+                console.log("fullfilled")
+                resolve(true)
+            }, 6000);
+        })
+        let p2 = new Promise((resolve, reject) => {
+            console.log("promise is pending")
+            setTimeout(() => {
+                console.log("rejected")
+                reject(new Error("it is a error"))
+            }, 6000);
+        })
+        p1.then((value)=>{
+            console.log(value)//true
+        })
+        // p2.then((value)=>{
+        //     console.log(value)// throws error,as not executed as p2 is rejected
+        // })
+        // p2.catch((error)=>{
+        //     console.log("p2 is a error")//error is catched
+        // })
+        p2.then((value)=>{
+            console.log(value)// throws error,as not executed as p2 is rejected
+        },(error)=>{
+            console.log("p2 is a error")//error is catched
+        })
+        // promise is pending
+        // promise is pending
+        // fullfilled
+        // true
+        // rejected
+        // p2 is a error
+    </script>
+</body>
+</html>
