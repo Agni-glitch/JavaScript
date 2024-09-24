@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout and setInterval</title>
+    <style></style>
+</head>
+<body>
+    <div>Hello World! </div>
+    <script>
+        document.write("hello ")
+        // alert("Hello")
+
+        // let a=setTimeout(() => {
+        //     alert("time out")
+        // },5000);
+
+        // let b=prompt("do you want to settimeout?")
+        // if(b=="no"){
+        // clearTimeout(a)
+        // }
+
+        // console.log(a)//1 (timer id)
+
+        const sum=(a,b)=>{
+            console.log("sum of 2 numbers "+(a+b))
+        }
+        setTimeout(sum,5000,34,78)//(after 5 sec) sum of 2 numbers 112
+        let b=setInterval(function () {
+            alert("I am Agni")
+        },6000)
+        clearInterval(b)
+    </script>
+</body>
+</html>
