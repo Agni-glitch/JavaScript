@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interitance and Extends keyword</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            constructor(name,color){
+                this.name=name
+                this.color=color
+            }
+            run(){
+                console.log(this.name+" is running")
+            }
+            shout(){
+                console.log(this.name+" is shouting")
+            }
+        }
+        class Monkey extends Animal{
+            eatBanana(){
+                console.log(this.name+" is eating banana")
+            }
+        }
+        let monu= new Monkey("Monu","red")
+        monu.run()
+        monu.eatBanana()
+        monu.shout()
+        // Monu is running
+        // Monu is eating banana
+        // Monu is shouting
+        let sonu = new Animal("sonu","orange")
+        sonu.run()//sonu is running
+        try{
+        sonu.eatBanana()//this will throw an error because class Monkey is inherited from Animal
+        }catch(error){
+            console.log(error)
+        }
+        // TypeError: sonu.eatBanana is not a function
+    </script>
+</body>
+</html>

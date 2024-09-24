@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter, setter and instanceOf</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            constructor(name){
+                this.name=name
+            }
+            fly(){
+                alert(`${this.name} is flying`)
+            }
+            get name(){
+                return this._name
+            }
+            set name(newName){
+                this._name=newName
+            }
+        }
+        class Dog extends Animal{
+
+        } 
+        let a = new Animal("Bruno")
+        a.fly()
+        console.log(a.name)
+        let c= new Dog()
+        console.log(a instanceof Animal)//true
+        console.log(c instanceof Animal)//true (also returns true for imherited class)
+    </script>
+</body>
+</html>

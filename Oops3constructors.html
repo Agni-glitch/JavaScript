@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor</title>
+</head>
+<body>
+    <script>
+       class RailwayForms{
+        constructor(givenName,trainNo){//always called when a new object is formed
+            console.log("constructor called..",givenName,trainNo)
+            this.name=givenName
+            this.trainNo=trainNo
+        }
+            // fill(givenName,trainNo){
+            //     this.name=givenName
+            //     this.trainNo=trainNo
+            // }
+            submit(){
+                alert(`form for ${this.name} of train No ${this.trainNo} is submitted`)
+            }
+            cancel(){
+                alert(`form for ${this.name} of train No ${this.trainNo} is canceled`) 
+            }
+        }
+        let Agni = new RailwayForms("Agni",122546)
+        let Agni1 = new RailwayForms("Agni1",656893)
+        // Agni.fill("Agni",122546)
+        // Agni1.fill("Agni1",656893)
+        // no need to fill explicitly when constructor is called
+        Agni.submit()
+        Agni1.submit()
+        Agni.cancel()  
+    </script>
+</body>
+</html>

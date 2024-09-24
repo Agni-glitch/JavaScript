@@ -1,0 +1,35 @@
+<!-- abastraction-hiding,encaplutation,inheritance,polymorphism -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypes</title>
+ </head>
+ <body>
+    <script>
+        let a ={
+            run:()=>{
+                alert("self run")
+            },
+            name1:"Agni",
+            language:"Java Script"
+        }
+        a.run()
+        console.log(a)
+        let p ={
+            run:()=>{
+                alert("run")
+            }
+        }
+        p.__proto__={
+            name:"Agni123"
+        }
+        a.__proto__=p
+        console.log(a.name)
+        a.run()
+        // prototype chain
+        
+    </script>
+ </body>
+ </html>

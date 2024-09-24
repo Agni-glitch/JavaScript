@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method overwriting and Super keyword</title>
+</head>
+<body>
+    <script>
+        class Employee{
+            login(){
+                console.log("Employee has loggid in")
+            }
+            logout(){
+                console.log("Employee has logged out")
+            }
+            requestLeaves(leaves){
+                console.log(`Employee has requested ${leaves} leaves`)
+            }
+        }
+        class programmer extends Employee{
+            requestCoffee(x){
+                console.log(`employee has requested ${x} coffees`)
+            }
+            requestLeaves(leaves){
+                super.requestLeaves(leaves)//simple to run the method of parent class instead of coping it
+                console.log("one extra is granted")
+                console.log(`number of ${leaves+1},one extra is given`)//method overwriting
+            }
+        }
+        let e = new programmer()
+        e.login()
+        e.requestLeaves(3)
+    </script>
+</body>
+</html>

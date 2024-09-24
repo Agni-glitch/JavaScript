@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor overwriting</title>
+</head>
+<body>
+    <script>
+        class Employee{
+            constructor(name){
+                console.log(`${name}, constructor is here`)
+                this.name=name
+            }
+            login(){
+                console.log("Employee has loggid in")
+            }
+            logout(){
+                console.log("Employee has logged out")
+            }
+            requestLeaves(leaves){
+                console.log(`Employee has requested ${leaves} leaves`)
+            }
+        }
+        class programmer extends Employee{
+            // a default constructor is formed and called automatically
+            // constructor(args..){
+            //     super(args..)
+            // }
+            constructor(name) {
+                super(name)//must be used when a constructor is rewritten
+                this.name=name
+                // this should be writtin after super
+                console.log("this is a over written constructor")
+            }
+            requestCoffee(x){
+                console.log(`employee has requested ${x} coffees`)
+            }
+            requestLeaves(leaves){
+                super.requestLeaves(leaves)
+                console.log("one extra is granted")
+                console.log(`number of ${leaves+1},one extra is given`)
+            }
+        }
+        let e = new programmer("Agni")//Agni, constructor is here (for default constructor in progremmer class)
+        e.login()
+        e.requestLeaves(5)
+        // Agni, constructor is here
+        // this is a over written constructor
+        // Employee has loggid in
+        // Employee has requested 5 leaves
+        // one extra is granted
+        // number of 6,one extra is given
+    </script>
+</body>
+</html>

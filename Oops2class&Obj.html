@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class and object</title>
+
+</head>
+<body>
+    <script>
+        // class is a template
+        class RailwayForms{
+            fill(givenName,trainNo){
+                this.name=givenName
+                this.trainNo=trainNo
+            }
+            submit(){
+                alert(`form for ${this.name} of train No ${this.trainNo} is submitted`)
+            }
+            cancel(){
+                alert(`form for ${this.name} of train No ${this.trainNo} is canceled`) 
+            }
+        }
+        let Agni = new RailwayForms()//obj 1
+        let Agni1 = new RailwayForms()//obj 2
+        Agni.fill("Agni",122546)
+        Agni1.fill("Agni1",656893)
+        //if the form is not filled then it comes undefined 
+        Agni.submit()
+        Agni1.submit()
+        Agni.cancel() 
+    </script>
+</body>
+</html>
